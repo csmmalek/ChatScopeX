@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Per-theme chat colors, read by the message adapter through MaterialColors. -->
+    <attr name="csBubbleOut" format="color" />
+    <attr name="csBubbleOutText" format="color" />
+    <attr name="csBubbleIn" format="color" />
+    <attr name="csBubbleInText" format="color" />
+</resources>

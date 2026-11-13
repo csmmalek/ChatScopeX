@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_voice" android:icon="@drawable/ic_call" android:title="@string/call_voice"
+        app:showAsAction="always" />
+    <item android:id="@+id/action_video" android:icon="@drawable/ic_video" android:title="@string/call_video"
+        app:showAsAction="always" />
+    <item android:id="@+id/action_group_info" android:icon="@drawable/ic_info" android:title="@string/group_info"
+        app:showAsAction="ifRoom" />
+</menu>

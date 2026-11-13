@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <com.google.android.material.appbar.MaterialToolbar android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" app:title="@string/tab_status" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- My status -->
+            <LinearLayout android:id="@+id/my_row" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground" android:gravity="center_vertical"
+                android:orientation="horizontal" android:paddingHorizontal="16dp" android:paddingVertical="12dp">
+                <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+                    <View android:id="@+id/my_ring" android:layout_width="64dp" android:layout_height="64dp"
+                        android:visibility="gone" />
+                    <ImageView android:id="@+id/my_avatar" android:layout_width="54dp" android:layout_height="54dp"
+                        android:layout_gravity="center" android:scaleType="centerCrop" android:contentDescription="@null" />
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                        android:layout_gravity="bottom|end" android:background="@drawable/summary_card"
+                        android:src="@drawable/ic_add" android:tint="?attr/colorPrimary" android:padding="2dp"
+                        android:contentDescription="@null" />
+                </FrameLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginHorizontal="14dp" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/my_status" android:textAppearance="?attr/textAppearanceTitleMedium" />
+                    <TextView android:id="@+id/my_sub" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp" android:paddingTop="16dp" android:paddingBottom="6dp"
+                android:text="@string/recent_updates" android:textAppearance="?attr/textAppearanceTitleSmall"
+                android:textColor="?attr/colorPrimary" />
+
+            <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/list"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:clipToPadding="false" android:paddingBottom="88dp" />
+                <TextView android:id="@+id/empty" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_gravity="center" android:gravity="center" android:padding="32dp"
+                    android:text="@string/status_empty" android:visibility="gone"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <ProgressBar android:id="@+id/progress" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:visibility="gone" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/fab"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end" android:layout_margin="20dp"
+            android:contentDescription="@string/new_status" app:srcCompat="@drawable/ic_status"
+            app:tint="?attr/colorOnPrimary" />
+    </FrameLayout>
+</LinearLayout>

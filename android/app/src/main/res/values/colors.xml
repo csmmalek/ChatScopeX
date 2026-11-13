@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Teal (default accent) -->
+    <color name="brand">#FF0F766E</color>
+    <color name="on_brand">#FFFFFFFF</color>
+    <color name="bubble_out">#FF0F766E</color>
+    <color name="bubble_in">#FFE8EEF0</color>
+    <color name="bubble_out_text">#FFFFFFFF</color>
+    <color name="bubble_in_text">#FF14212A</color>
+    <color name="error_red">#FFB3261E</color>
+    <color name="surface_card">#FFFFFFFF</color>
+    <color name="swatch_ring">#FF14212A</color>
+    <!-- ocean -->
+    <color name="ocean_brand">#FF1565C0</color>
+    <color name="ocean_on_brand">#FFFFFFFF</color>
+    <color name="ocean_bubble_out">#FF1565C0</color>
+    <color name="ocean_bubble_in">#FFE3EEFB</color>
+    <!-- violet -->
+    <color name="violet_brand">#FF6A4FB3</color>
+    <color name="violet_on_brand">#FFFFFFFF</color>
+    <color name="violet_bubble_out">#FF6A4FB3</color>
+    <color name="violet_bubble_in">#FFEEE8FA</color>
+    <!-- rose -->
+    <color name="rose_brand">#FFB3295D</color>
+    <color name="rose_on_brand">#FFFFFFFF</color>
+    <color name="rose_bubble_out">#FFB3295D</color>
+    <color name="rose_bubble_in">#FFFBE9EF</color>
+    <!-- amber -->
+    <color name="amber_brand">#FFA35B00</color>
+    <color name="amber_on_brand">#FFFFFFFF</color>
+    <color name="amber_bubble_out">#FFA35B00</color>
+    <color name="amber_bubble_in">#FFFFF3E0</color>
+    <!-- forest -->
+    <color name="forest_brand">#FF2E7D32</color>
+    <color name="forest_on_brand">#FFFFFFFF</color>
+    <color name="forest_bubble_out">#FF2E7D32</color>
+    <color name="forest_bubble_in">#FFE8F5E9</color>
+    <!-- Chat wallpaper -->
+    <color name="chat_wallpaper_top">#FFF4F7F8</color>
+    <color name="chat_wallpaper_bottom">#FFE3EDEF</color>
+    <!-- Status backgrounds (fixed, same in both modes) -->
+    <color name="status_bg_0">#FF0F766E</color>
+    <color name="status_bg_1">#FF1E3A8A</color>
+    <color name="status_bg_2">#FF7C3AED</color>
+    <color name="status_bg_3">#FFBE185D</color>
+    <color name="status_bg_4">#FFB45309</color>
+    <color name="status_bg_5">#FF15803D</color>
+    <color name="status_bg_6">#FF0369A1</color>
+    <color name="status_bg_7">#FF334155</color>
+    <!-- Sender names in group chats -->
+    <color name="name_1">#FF0F766E</color>
+    <color name="name_2">#FFB45309</color>
+    <color name="name_3">#FF7C3AED</color>
+    <color name="name_4">#FFBE185D</color>
+    <color name="name_5">#FF1D4ED8</color>
+    <color name="name_6">#FF15803D</color>
+</resources>

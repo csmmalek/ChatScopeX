@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:paddingHorizontal="12dp" android:paddingVertical="3dp">
+
+    <TextView android:id="@+id/sender" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginStart="10dp" android:layout_marginEnd="10dp" android:layout_marginBottom="2dp"
+        android:textSize="12sp" android:textStyle="bold" android:visibility="gone" />
+
+    <LinearLayout android:id="@+id/bubble" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="vertical" android:elevation="1dp"
+        android:paddingHorizontal="14dp" android:paddingTop="9dp" android:paddingBottom="6dp">
+        <ImageView android:id="@+id/image" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:adjustViewBounds="true" android:maxWidth="240dp" android:maxHeight="300dp"
+            android:minWidth="160dp" android:minHeight="120dp" android:scaleType="centerCrop"
+            android:layout_marginBottom="4dp" android:visibility="gone" android:contentDescription="@string/msg_image" />
+        <TextView android:id="@+id/audio" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:minWidth="180dp" android:paddingVertical="8dp" android:textSize="16sp"
+            android:visibility="gone" android:background="?attr/selectableItemBackground" />
+        <TextView android:id="@+id/text" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:maxWidth="280dp" android:textIsSelectable="false" android:textSize="16sp" android:lineSpacingMultiplier="1.1" />
+        <TextView android:id="@+id/meta" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="end" android:layout_marginTop="2dp" android:textSize="11sp" />
+    </LinearLayout>
+</LinearLayout>

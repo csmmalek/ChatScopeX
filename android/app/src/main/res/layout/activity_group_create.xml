@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar"
+        android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_back" app:title="@string/new_group" />
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/group_picture" android:textAppearance="?attr/textAppearanceTitleSmall" />
+            <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:scrollbars="none">
+                <LinearLayout android:id="@+id/avatars" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <com.google.android.material.textfield.TextInputLayout android:id="@+id/name_layout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:hint="@string/group_name">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/name"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="text" android:maxLength="50" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton android:id="@+id/pick_members"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="@string/pick_members" app:icon="@drawable/ic_add" />
+
+            <TextView android:id="@+id/summary" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="14dp" android:padding="14dp"
+                android:background="@drawable/summary_card" android:textAppearance="?attr/textAppearanceBodyMedium" />
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.button.MaterialButton android:id="@+id/create"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_margin="20dp" android:text="@string/create_group" android:enabled="false" />
+</LinearLayout>

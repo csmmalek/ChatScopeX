@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default accent (teal). Light/dark follows the DayNight parent and the user's setting. -->
+    <style name="Theme.ChatScopeX" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="materialButtonStyle">@style/Widget.ChatScopeX.Button</item>
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorOnPrimary">@color/on_brand</item>
+        <item name="csBubbleOut">@color/bubble_out</item>
+        <item name="csBubbleIn">@color/bubble_in</item>
+        <item name="csBubbleOutText">@color/bubble_out_text</item>
+        <item name="csBubbleInText">@color/bubble_in_text</item>
+    </style>
+    <!-- Ocean accent -->
+    <style name="Theme.ChatScopeX.Ocean" parent="Theme.ChatScopeX">
+        <item name="colorPrimary">@color/ocean_brand</item>
+        <item name="colorOnPrimary">@color/ocean_on_brand</item>
+        <item name="csBubbleOut">@color/ocean_bubble_out</item>
+        <item name="csBubbleIn">@color/ocean_bubble_in</item>
+        <item name="csBubbleOutText">@color/bubble_out_text</item>
+        <item name="csBubbleInText">@color/bubble_in_text</item>
+    </style>
+    <!-- Violet accent -->
+    <style name="Theme.ChatScopeX.Violet" parent="Theme.ChatScopeX">
+        <item name="colorPrimary">@color/violet_brand</item>
+        <item name="colorOnPrimary">@color/violet_on_brand</item>
+        <item name="csBubbleOut">@color/violet_bubble_out</item>
+        <item name="csBubbleIn">@color/violet_bubble_in</item>
+        <item name="csBubbleOutText">@color/bubble_out_text</item>
+        <item name="csBubbleInText">@color/bubble_in_text</item>
+    </style>
+    <!-- Rose accent -->
+    <style name="Theme.ChatScopeX.Rose" parent="Theme.ChatScopeX">
+        <item name="colorPrimary">@color/rose_brand</item>
+        <item name="colorOnPrimary">@color/rose_on_brand</item>
+        <item name="csBubbleOut">@color/rose_bubble_out</item>
+        <item name="csBubbleIn">@color/rose_bubble_in</item>
+        <item name="csBubbleOutText">@color/bubble_out_text</item>
+        <item name="csBubbleInText">@color/bubble_in_text</item>
+    </style>
+    <!-- Amber accent -->
+    <style name="Theme.ChatScopeX.Amber" parent="Theme.ChatScopeX">
+        <item name="colorPrimary">@color/amber_brand</item>
+        <item name="colorOnPrimary">@color/amber_on_brand</item>
+        <item name="csBubbleOut">@color/amber_bubble_out</item>
+        <item name="csBubbleIn">@color/amber_bubble_in</item>
+        <item name="csBubbleOutText">@color/bubble_out_text</item>
+        <item name="csBubbleInText">@color/bubble_in_text</item>
+    </style>
+    <!-- Forest accent -->
+    <style name="Theme.ChatScopeX.Forest" parent="Theme.ChatScopeX">
+        <item name="colorPrimary">@color/forest_brand</item>
+        <item name="colorOnPrimary">@color/forest_on_brand</item>
+        <item name="csBubbleOut">@color/forest_bubble_out</item>
+        <item name="csBubbleIn">@color/forest_bubble_in</item>
+        <item name="csBubbleOutText">@color/bubble_out_text</item>
+        <item name="csBubbleInText">@color/bubble_in_text</item>
+    </style>
+    <style name="Widget.ChatScopeX.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

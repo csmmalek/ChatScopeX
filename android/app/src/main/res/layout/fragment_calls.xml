@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <com.google.android.material.appbar.MaterialToolbar android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" app:title="@string/tab_calls" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/list"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:clipToPadding="false" android:paddingBottom="88dp" />
+        <TextView android:id="@+id/empty" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:gravity="center" android:padding="32dp"
+            android:text="@string/calls_empty" android:visibility="gone"
+            android:textAppearance="?attr/textAppearanceBodyLarge" />
+        <TextView android:id="@+id/error" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:gravity="center" android:padding="32dp"
+            android:visibility="gone" android:textAppearance="?attr/textAppearanceBodyLarge" />
+        <ProgressBar android:id="@+id/progress" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:visibility="gone" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/fab"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end" android:layout_margin="20dp"
+            android:contentDescription="@string/new_call" app:srcCompat="@drawable/ic_call"
+            app:tint="?attr/colorOnPrimary" />
+    </FrameLayout>
+</LinearLayout>

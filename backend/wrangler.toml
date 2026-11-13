@@ -1,0 +1,27 @@
+# The name matches the Worker you already created in the dashboard, so deploying updates it
+# and the URL stays https://broad-unit-e632.zmalqpgg7777.workers.dev
+name = "broad-unit-e632"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+account_id = "a0f2046d04e4340d2cc2833e6ce98c07"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "chatscopex"
+database_id = "49249619-270e-4579-b891-a639f1c233ce"
+migrations_dir = "migrations"
+
+# Live message delivery (one object per user)
+[[durable_objects.bindings]]
+name = "INBOX"
+class_name = "Inbox"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Inbox"]
+
+# Images and voice notes. Needs R2 enabled on the account. The deploy workflow switches this
+# block on when the repository variable ENABLE_R2 is "true".
+#R2# [[r2_buckets]]
+#R2# binding = "MEDIA"
+#R2# bucket_name = "chatscopex-media"

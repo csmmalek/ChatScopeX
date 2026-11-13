@@ -1,0 +1,14 @@
+{
+  "name": "chatscopex-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "migrate": "wrangler d1 migrations apply chatscopex --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

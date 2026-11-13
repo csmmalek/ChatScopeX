@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar"
+        android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_back" app:title="@string/new_chat" />
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_margin="12dp" android:hint="@string/search_users">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/query"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="text" android:imeOptions="actionSearch" android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/list"
+            android:layout_width="match_parent" android:layout_height="match_parent" android:clipToPadding="false"
+            android:paddingBottom="80dp" />
+        <TextView android:id="@+id/hint" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:gravity="center" android:padding="32dp"
+            android:text="@string/search_hint" android:textAppearance="?attr/textAppearanceBodyLarge" />
+        <ProgressBar android:id="@+id/progress" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:visibility="gone" />
+    </FrameLayout>
+    <!-- Shown only in pick_many mode -->
+    <com.google.android.material.button.MaterialButton android:id="@+id/done"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom" android:layout_margin="16dp"
+        android:visibility="gone" android:text="@string/done" />
+</LinearLayout>
