@@ -45,5 +45,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
 
     // WebRTC for voice and video calls (Google's build, on Maven Central).
-    implementation 'org.webrtc:google-webrtc:1.0.32006'
+    implementation 'io.github.webrtc-sdk:android:125.6422.+'
 }
