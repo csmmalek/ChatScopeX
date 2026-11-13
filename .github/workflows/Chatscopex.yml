@@ -1,0 +1,98 @@
+name: ChatScope X
+
+# Run it from the Actions tab: choose unpack, then deploy-backend, then build-android.
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "What to run"
+        type: choice
+        default: unpack
+        options: [unpack, deploy-backend, build-android, all]
+  push:
+    branches: [main]
+    paths: ["backend/**", "android/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    if: github.event_name == 'workflow_dispatch' && inputs.action == 'unpack'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack chatscopex-repo.zip
+        run: |
+          test -f chatscopex-repo.zip || { echo "Upload chatscopex-repo.zip to the repository root first"; exit 1; }
+          unzip -o chatscopex-repo.zip
+          rm chatscopex-repo.zip
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Add ChatScope X project"
+          git push
+
+  backend:
+    if: github.event_name == 'push' || inputs.action == 'deploy-backend' || inputs.action == 'all'
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Tests
+        run: npm test
+      - name: Turn on R2 (only when the repository variable ENABLE_R2 is "true")
+        if: vars.ENABLE_R2 == 'true'
+        run: |
+          sed -i 's/^#R2# //' wrangler.toml
+          npx wrangler r2 bucket create chatscopex-media || true
+      - name: Apply database migrations
+        run: npx wrangler d1 migrations apply chatscopex --remote
+      - name: Deploy the Worker
+        run: npx wrangler deploy
+      - name: Save TURN credentials (only when both secrets exist)
+        env:
+          TURN_KEY_ID: ${{ secrets.TURN_KEY_ID }}
+          TURN_API_TOKEN: ${{ secrets.TURN_API_TOKEN }}
+        run: |
+          if [ -n "$TURN_KEY_ID" ] && [ -n "$TURN_API_TOKEN" ]; then
+            printf %s "$TURN_KEY_ID" | npx wrangler secret put TURN_KEY_ID
+            printf %s "$TURN_API_TOKEN" | npx wrangler secret put TURN_API_TOKEN
+          fi
+
+  android:
+    if: github.event_name == 'push' || inputs.action == 'build-android' || inputs.action == 'all'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.14.3
+      - name: Build the debug APK
+        working-directory: android
+        run: gradle assembleDebug --no-daemon
+      - name: Keep the APK as a build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChatScopeX-apk
+          path: android/app/build/outputs/apk/debug/*.apk
+      - name: Publish the APK as a release (one tap to download on a phone)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp android/app/build/outputs/apk/debug/*.apk ChatScopeX.apk
+          gh release create "build-${{ github.run_number }}" ChatScopeX.apk \
+            --title "ChatScope X build ${{ github.run_number }}" \
+            --notes "Debug APK built from ${{ github.sha }}"
